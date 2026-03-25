@@ -107,42 +107,21 @@ const Home = () => {
             variants={staggerContainer}
             className="flex flex-col items-center"
           >
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white leading-tight mb-6 max-w-4xl">
-              Align Your Space, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow to-yellow-light">Elevate Your Life</span>
+            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl lg:text-9xl font-playfair font-bold text-white leading-tight mb-4 max-w-5xl">
+              Masum Vastu Guru
             </motion.h1>
             
-            <motion.p variants={fadeInUp} className="text-gray-300 text-lg md:text-xl font-poppins mb-10 max-w-2xl leading-relaxed">
-              Unlock prosperity, health, and harmony through the ancient, science-backed wisdom of authentic Vastu Shastra.
+            <motion.p variants={fadeInUp} className="text-yellow text-2xl md:text-4xl font-playfair italic mb-12 tracking-wide">
+              Vastu kuhe Tathastu
             </motion.p>
             
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => setBookingOpen(true)} className="btn-primary text-lg px-8 py-4 shadow-[0_0_20px_rgba(244,187,0,0.3)] hover:shadow-[0_0_30px_rgba(244,187,0,0.5)]">
+              <button onClick={() => setBookingOpen(true)} className="btn-primary text-xl px-10 py-5 shadow-[0_0_30px_rgba(244,187,0,0.3)] hover:shadow-[0_0_50px_rgba(244,187,0,0.5)]">
                 Book Consultation
               </button>
-              <Link to="/products" className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white font-semibold flex items-center justify-center gap-2 px-8 py-4 rounded-lg transition-all duration-300 text-lg">
-                Explore Shop <ArrowRight size={20} />
+              <Link to="/products" className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white font-semibold flex items-center justify-center gap-2 px-10 py-5 rounded-lg transition-all duration-300 text-xl">
+                Explore Shop <ArrowRight size={24} />
               </Link>
-            </motion.div>
-
-            {/* Floating Badge (Centered or moved) */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1, y: [0, 10, 0] }}
-              transition={{ 
-                opacity: { duration: 1, delay: 1 },
-                scale: { duration: 1, delay: 1 },
-                y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
-              }}
-              className="mt-16 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 flex items-center gap-4"
-            >
-              <div className="w-12 h-12 bg-yellow/20 flex items-center justify-center rounded-full">
-                <Award className="text-yellow w-6 h-6" />
-              </div>
-              <div className="text-left">
-                <p className="font-bold text-xl text-white font-playfair">15+ Yrs</p>
-                <p className="text-xs text-white/70 font-poppins capitalize">of Excellence</p>
-              </div>
             </motion.div>
           </motion.div>
         </div>
