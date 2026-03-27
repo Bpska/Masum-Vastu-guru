@@ -22,6 +22,7 @@ import ProductCard from '../components/cards/ProductCard';
 import ServiceCard from '../components/cards/ServiceCard';
 import StarRating from '../components/common/StarRating';
 import BookingModal from '../components/modals/BookingModal';
+import LiveOrderNotification from '../components/common/LiveOrderNotification';
 import toast from 'react-hot-toast';
 
 const faqs = [
@@ -403,6 +404,7 @@ const Home = () => {
       </section>
 
       <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
+      <LiveOrderNotification />
     </motion.div>
   );
 };
