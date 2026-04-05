@@ -97,7 +97,11 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="bg-maroon text-white">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm font-poppins">
-          <p>&copy; 2026 Masum Vastu Guru. All Rights Reserved.</p>
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <p>&copy; 2026 Masum Vastu Guru. All Rights Reserved.</p>
+            <span className="hidden sm:inline border-l border-white/20 h-4 mx-1"></span>
+            <p className="text-gray-300">Design by <span className="text-yellow font-bold">Logisaar</span></p>
+          </div>
           <div className="flex gap-4">
             <Link to="/privacy" className="hover:text-yellow transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-yellow transition-colors">Terms &amp; Conditions</Link>

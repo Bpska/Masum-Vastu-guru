@@ -7,6 +7,8 @@ import { categories } from '../../data/products';
 import { services } from '../../data/services';
 import AuthModal from '../modals/AuthModal';
 import TopBar from './TopBar';
+import useBookingStore from '../../store/bookingStore';
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,7 +21,9 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const cartCount = useCartStore(s => s.getCount());
+  const openBooking = useBookingStore(s => s.openBooking);
   const isHome = location.pathname === '/';
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -117,7 +121,15 @@ const Navbar = () => {
             </div>
 
             {/* Right Icons */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
+              <button 
+                onClick={openBooking} 
+                className="hidden md:flex items-center gap-2 bg-[#F4BB00] hover:bg-[#ffcd30] text-maroon font-bold px-5 py-2 rounded-full text-sm transition-all transform hover:scale-105 shadow-md mr-1"
+              >
+                Book Now
+              </button>
+
+              
               <button onClick={() => setSearchOpen(!searchOpen)} className={`p-2 rounded-full hover:bg-maroon/10 transition-colors ${textColor}`}>
                 <Search size={20} />
               </button>
@@ -138,6 +150,7 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
+
 
         {/* Search Bar */}
         <AnimatePresence>

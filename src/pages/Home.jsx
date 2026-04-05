@@ -14,7 +14,7 @@ import { useInView } from 'react-intersection-observer';
 const CountUp = (CountUpImport && CountUpImport.default && typeof CountUpImport.default === 'function')
   ? CountUpImport.default
   : CountUpImport;
-import { ChevronDown, Plus, Minus, Award, Shield, Heart, Users, ArrowRight, Send, Star, CheckCircle } from 'lucide-react';
+import { ChevronDown, Plus, Minus, Award, Shield, Heart, Users, ArrowRight, Send, Star, CheckCircle, Phone } from 'lucide-react';
 import { products } from '../data/products';
 import { services } from '../data/services';
 import { testimonials } from '../data/testimonials';
@@ -24,6 +24,11 @@ import StarRating from '../components/common/StarRating';
 import BookingModal from '../components/modals/BookingModal';
 import LiveOrderNotification from '../components/common/LiveOrderNotification';
 import toast from 'react-hot-toast';
+import heroImage from '../assets/image.png';
+import heroImageCopy from '../assets/image copy.png';
+import useBookingStore from '../store/bookingStore';
+
+
 
 const faqs = [
   { q: "What is Vastu Shastra and how can it help me?", a: "Vastu Shastra is the ancient Indian science of architecture and spatial arrangement. It helps create harmonious living spaces that promote health, wealth, and happiness by aligning your environment with natural energies and cosmic forces." },
@@ -51,8 +56,9 @@ const staggerContainer = {
 };
 
 const Home = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const openBooking = useBookingStore(s => s.openBooking);
   const [openFaq, setOpenFaq] = useState(null);
+
   const [newsEmail, setNewsEmail] = useState('');
   
   const { ref: statsRef, inView: statsInView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -73,66 +79,52 @@ const Home = () => {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-      {/* HERO SECTION - Premium Split Layout & Parallax effect */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-maroon-dark pt-20">
-        <div className="absolute inset-0 z-0">
+      {/* HERO SECTION - Premium Sliding Banner */}
+      <section className="relative mt-24 md:mt-28 lg:mt-32 bg-white overflow-hidden shadow-sm">
+        <div className="max-w-[1920px] mx-auto">
           <Swiper
-            modules={[Autoplay, EffectFade]}
+            modules={[Autoplay, Pagination, EffectFade]}
             effect="fade"
-            fadeEffect={{ crossFade: true }}
-            autoplay={{ delay: 6000, disableOnInteraction: false }}
+            speed={1200}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            pagination={{ clickable: true, dynamicBullets: true }}
             loop={true}
-            className="w-full h-full"
+            className="w-full h-auto"
           >
-            {[
-              "https://images.unsplash.com/photo-1548013146-72479768bada?w=1920",
-              "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920",
-              "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920",
-              "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1920"
-            ].map((img, idx) => (
-              <SwiperSlide key={idx}>
-                <div 
-                  className="w-full h-full bg-cover bg-center opacity-60 scale-110 animate-subtle-zoom"
-                  style={{ backgroundImage: `url('${img}')` }}
-                />
-              </SwiperSlide>
-            ))}
+            {/* Slide 1 */}
+            <SwiperSlide>
+              <div className="relative group px-4 md:px-8 lg:px-12 py-6">
+                <div className="rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-500">
+                  <img 
+                    src={heroImage} 
+                    alt="Masum Vastu Guru Presentation 1" 
+                    className="w-full h-auto block select-none transform hover:scale-[1.02] transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+
+            {/* Slide 2 */}
+            <SwiperSlide>
+              <div className="relative group px-4 md:px-8 lg:px-12 py-6">
+                <div className="rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-500">
+                  <img 
+                    src={heroImageCopy} 
+                    alt="Masum Vastu Guru Presentation 2" 
+                    className="w-full h-auto block select-none transform hover:scale-[1.02] transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
           </Swiper>
-          <div className="absolute inset-0 bg-maroon-dark/60 z-10" />
         </div>
-        
-        <div className="relative z-10 max-w-5xl mx-auto px-4 w-full text-center">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="flex flex-col items-center"
-          >
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl lg:text-9xl font-playfair font-bold text-white leading-tight mb-4 max-w-5xl">
-              Masum Vastu Guru
-            </motion.h1>
-            
-            <motion.p variants={fadeInUp} className="text-yellow text-2xl md:text-4xl font-playfair italic mb-12 tracking-wide">
-              Vastu kuhe Tathastu
-            </motion.p>
-            
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => setBookingOpen(true)} className="btn-primary text-xl px-10 py-5 shadow-[0_0_30px_rgba(244,187,0,0.3)] hover:shadow-[0_0_50px_rgba(244,187,0,0.5)]">
-                Book Consultation
-              </button>
-              <Link to="/products" className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white font-semibold flex items-center justify-center gap-2 px-10 py-5 rounded-lg transition-all duration-300 text-xl">
-                Explore Shop <ArrowRight size={24} />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-        
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 hover:text-white cursor-pointer transition-colors"
-          onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>
-          <ChevronDown size={36} />
-        </motion.div>
       </section>
+
+
+
+
+
+
 
       {/* ABOUT PREVIEW SECTION */}
       <section id="about" className="py-20 md:py-28 bg-white relative overflow-hidden" ref={aboutRef}>
@@ -166,11 +158,19 @@ const Home = () => {
                 <li key={i} className="flex items-center gap-3 text-text-dark font-medium font-poppins"><CheckCircle className="text-yellow" size={20} /> {item}</li>
               ))}
             </motion.ul>
-            <motion.div variants={fadeInUp}>
-              <Link to="/about" className="btn-outline inline-flex items-center gap-2 group">
-                Discover Our Journey <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+              <Link to="/about" className="btn-outline inline-flex items-center gap-2 group justify-center">
+                Our Journey <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
+              <button 
+                onClick={openBooking} 
+                className="btn-primary inline-flex items-center gap-2 group text-sm md:text-base justify-center"
+              >
+                Book Fast Consultation <Phone size={18} />
+              </button>
+
             </motion.div>
+
           </motion.div>
         </div>
       </section>
@@ -403,9 +403,9 @@ const Home = () => {
         </div>
       </section>
 
-      <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
       <LiveOrderNotification />
     </motion.div>
+
   );
 };
 

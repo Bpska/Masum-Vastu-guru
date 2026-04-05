@@ -17,6 +17,9 @@ import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import Dashboard from './pages/Dashboard';
 import ScrollToTop from './components/common/ScrollToTop';
+import BookingModal from './components/modals/BookingModal';
+import useBookingStore from './store/bookingStore';
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -48,7 +51,12 @@ function App() {
       <AnimatedRoutes />
       <Footer />
       <FloatingWhatsApp />
+      <BookingModal 
+        isOpen={useBookingStore(s => s.isOpen)} 
+        onClose={useBookingStore(s => s.closeBooking)} 
+      />
       <Toaster position="top-right" toastOptions={{ style: { fontFamily: 'Poppins', borderRadius: '12px' }, success: { iconTheme: { primary: '#7F0404', secondary: '#fff' } } }} />
+
     </BrowserRouter>
   );
 }
