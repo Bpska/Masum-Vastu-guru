@@ -21,20 +21,20 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-maroon/10 to-yellow/10 flex items-center justify-center relative overflow-hidden shadow-lg">
-              <img src="/founder.jpg" alt="Masum Vastu Expert - Founder" className="w-full h-full object-cover object-top" />
+              <img src="/founder.jpg" alt="Masum Vastu Guru" className="w-full h-full object-cover object-top" />
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center z-10 shadow-md">
-                <p className="font-playfair font-bold text-maroon text-lg">Masum Vastu Expert</p>
-                <p className="text-sm text-text-mid font-poppins">Founder & Chief Consultant</p>
+                <p className="font-playfair font-bold text-maroon text-lg">Masum Vastu Guru</p>
+                <p className="text-sm text-text-mid font-poppins">Vastu Consultant & Astrologer</p>
               </div>
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-playfair font-bold text-maroon mb-2">Masum Vastu Expert</h2>
-            <p className="text-yellow font-semibold font-poppins mb-4">15+ Years of Vastu Expertise</p>
+            <h2 className="text-3xl font-playfair font-bold text-maroon mb-2">Masum Vastu Guru</h2>
+            <p className="text-yellow font-semibold font-poppins mb-4">8+ Years of Expertise (Since 2019)</p>
             <div className="space-y-4 text-text-mid font-poppins leading-relaxed">
-              <p>With over 15 years of dedicated practice in Vastu Shastra, Masum Vastu Guru has transformed hundreds of homes and businesses. His journey began with a deep fascination for the ancient sciences of India and has evolved into a mission to make Vastu accessible to everyone.</p>
-              <p>Certified by leading Vastu institutions, he combines traditional Vedic knowledge with modern understanding to provide practical, non-destructive remedies that deliver results. His unique approach ensures that clients can benefit from Vastu corrections without any structural demolition.</p>
-              <p>Through his courses, consultations, and curated products, he has built a trusted brand that stands for authenticity, expertise, and proven results in the Vastu consultancy space.</p>
+              <p>ମାସୁମ୍ ବାସ୍ତୁ ଗୁରୁ ଦୀର୍ଘ ୮ ବର୍ଷରୁ ଊର୍ଦ୍ଧ୍ୱ ସମୟ ଧରି ବାସ୍ତୁ ଶାସ୍ତ୍ର ଏବଂ ଜ୍ୟୋତିଷ ଶାସ୍ତ୍ର ମାଧ୍ୟମରେ ଅନେକ ଲୋକଙ୍କ ଜୀବନରେ ସକାରାତ୍ମକ ପରିବର୍ତ୍ତନ ଆଣିବାରେ ସଫଳ ହୋଇଛନ୍ତି।</p>
+              <p>ସେ ବିନା କୌଣସି ଭଙ୍ଗାଭଙ୍ଗିରେ (No Demolition) ବାସ୍ତୁ ଦୋଷ ନିବାରଣ କରିବାରେ ବିଶେଷଜ୍ଞ। ଆଧୁନିକ ଜୀବନଶୈଳୀ ସହ ପ୍ରାଚୀନ ବାସ୍ତୁ ଜ୍ଞାନର ସମନ୍ୱୟ ରକ୍ଷା କରି, ସେ ଉଲ୍ଲେଖନୀୟ ପରାମର୍ଶ ପ୍ରଦାନ କରନ୍ତି।</p>
+              <p>With over 8 years of dedicated practice in Vastu Shastra since 2019, Masum Vastu Guru has transformed hundreds of homes and businesses. His unique approach ensures that clients can benefit from Vastu corrections without any structural demolition.</p>
             </div>
           </motion.div>
         </div>
@@ -90,11 +90,11 @@ const About = () => {
           <div className="relative">
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-maroon/20 md:-translate-x-0.5" />
             {[
-              { year: '2010', title: 'Founded', desc: 'Started Vastu consultancy practice in India.' },
-              { year: '2014', title: 'First 100 Clients', desc: 'Reached milestone of 100 satisfied clients across multiple cities.' },
-              { year: '2018', title: 'Online Courses Launched', desc: 'Expanded to online education with certified Vastu courses.' },
-              { year: '2022', title: 'E-Commerce Store', desc: 'Launched curated collection of Vastu products and crystals.' },
-              { year: '2025', title: '250+ Happy Clients', desc: 'Continuing to grow with nationwide consultancy reach.' },
+              { year: '2019', title: 'Founded', desc: 'Started Vastu consultancy practice in India.' },
+              { year: '2021', title: 'First 100 Clients', desc: 'Reached milestone of 100 satisfied clients across multiple cities.' },
+              { year: '2023', title: 'Online Courses Launched', desc: 'Expanded to online education with certified Vastu courses.' },
+              { year: '2024', title: 'E-Commerce Store', desc: 'Launched curated collection of Vastu products and crystals.' },
+              { year: '2026', title: '250+ Happy Clients', desc: 'Continuing to grow with nationwide consultancy reach.' },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }}

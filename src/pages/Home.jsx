@@ -14,7 +14,7 @@ import { useInView } from 'react-intersection-observer';
 const CountUp = (CountUpImport && CountUpImport.default && typeof CountUpImport.default === 'function')
   ? CountUpImport.default
   : CountUpImport;
-import { ChevronDown, Plus, Minus, Award, Shield, Heart, Users, ArrowRight, Send, Star, CheckCircle, Phone } from 'lucide-react';
+import { ChevronDown, Plus, Minus, Award, Shield, Heart, Users, ArrowRight, Send, Star, CheckCircle, Phone, ShieldAlert } from 'lucide-react';
 import { products } from '../data/products';
 import { services } from '../data/services';
 import { testimonials } from '../data/testimonials';
@@ -183,7 +183,7 @@ const Home = () => {
             { num: 250, suffix: '+', label: 'Satisfied Clients', icon: Users },
             { num: 500, suffix: '+', label: 'Remedies Sold', icon: Shield },
             { num: 20, suffix: '+', label: 'Certified Courses', icon: Award },
-            { num: 15, suffix: '+', label: 'Years Experience', icon: Heart },
+            { num: 8, suffix: '+', label: 'Years Experience', icon: Heart },
           ].map((stat, i) => (
             <motion.div 
               key={i}
@@ -218,11 +218,89 @@ const Home = () => {
               <ServiceCard key={s.id} service={s} index={i} onBook={() => setBookingOpen(true)} />
             ))}
           </div>
+
+          {/* Pricing Table Section */}
+          <div className="mt-20 overflow-x-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <h3 className="text-3xl font-playfair font-bold text-center text-maroon mb-8">Service Pricing Table</h3>
+            <table className="w-full min-w-[600px] text-left border-collapse">
+              <thead>
+                <tr className="border-b-2 border-maroon">
+                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Region</th>
+                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Site Visit Consultancy</th>
+                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Online Consultancy</th>
+                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Vastu Connect</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="py-4 px-6 font-semibold font-poppins text-maroon">Local</td>
+                  <td className="py-4 px-6 font-poppins text-text-mid">₹3000/- <span className="text-green-500 font-bold ml-1">✓</span></td>
+                  <td className="py-4 px-6 font-poppins text-text-mid">₹1200/- <span className="text-green-500 font-bold ml-1">✓</span></td>
+                  <td className="py-4 px-6 font-poppins text-text-mid">₹3000/- <span className="text-green-500 font-bold ml-1">✓</span></td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="py-4 px-6 font-semibold font-poppins text-maroon">Odisha</td>
+                  <td className="py-4 px-6 font-poppins text-text-mid">₹30,000/- <span className="text-green-500 font-bold ml-1">✓ (visit)</span></td>
+                  <td className="py-4 px-6 font-poppins text-text-mid">-</td>
+                  <td className="py-4 px-6 font-poppins text-text-mid">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <div className="text-center mt-12">
             <Link to="/services" className="btn-primary inline-flex items-center gap-2 group">
               Explore All Services <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* WHAT YOU GET Section */}
+      <section className="py-16 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-playfair font-bold text-text-dark mb-10">What You Get ?</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="p-6 bg-yellow/5 rounded-xl border border-yellow/20">
+              <ShieldAlert className="mx-auto text-maroon mb-3" size={32} />
+              <p className="font-poppins font-semibold text-text-dark">Detailed Report</p>
+            </div>
+            <div className="p-6 bg-yellow/5 rounded-xl border border-yellow/20">
+              <Phone className="mx-auto text-maroon mb-3" size={32} />
+              <p className="font-poppins font-semibold text-text-dark">Post-visit Support</p>
+            </div>
+            <div className="p-6 bg-yellow/5 rounded-xl border border-yellow/20">
+              <Heart className="mx-auto text-maroon mb-3" size={32} />
+              <p className="font-poppins font-semibold text-text-dark">Energy Balancing</p>
+            </div>
+            <div className="p-6 bg-yellow/5 rounded-xl border border-yellow/20">
+              <Award className="mx-auto text-maroon mb-3" size={32} />
+              <p className="font-poppins font-semibold text-text-dark">Proven Remedies</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MEDIA COVERAGE Section */}
+      <section className="py-16 bg-maroon text-white text-center">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">Media Coverage ? / Workshop ? / YouTube Videos ?</h2>
+          <p className="font-poppins mb-8 text-white/80">Recognized by leading news outlets and adored by millions on YouTube for simplifying Vastu Shastra.</p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="https://youtube.com/@masumvastuguru" target="_blank" rel="noreferrer" className="bg-white text-maroon px-6 py-3 rounded-full font-bold font-poppins shadow-md hover:bg-yellow transition-colors">Watch on YouTube</a>
+            <Link to="/events" className="border-2 border-white px-6 py-3 rounded-full font-bold font-poppins hover:bg-white hover:text-maroon transition-colors">Upcoming Workshops</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* PROFESSIONAL VASTU Section */}
+      <section className="py-20 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920')] bg-cover bg-fixed relative">
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+          <h2 className="text-5xl md:text-7xl font-playfair font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow to-white tracking-wider uppercase mb-6 drop-shadow-lg">
+            Professional Vastu
+          </h2>
+          <p className="text-xl md:text-2xl font-poppins text-white/90 italic max-w-2xl mx-auto">Elevating spaces with scientific analysis and Vedic principles. No demolition required.</p>
         </div>
       </section>
 
@@ -294,8 +372,9 @@ const Home = () => {
         <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-maroon/5 rounded-full blur-3xl" />
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h4 className="text-maroon font-bold tracking-widest uppercase mb-2">Testimonials</h4>
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-text-dark">Stories of Transformation</h2>
+            <h4 className="text-maroon font-bold tracking-widest uppercase mb-2">Moments of Harmony ?</h4>
+            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-text-dark">Stories of Transformation (Feedbacks)</h2>
+            <p className="text-text-mid text-lg mt-4">Read our success stories in English, Odia, and Bengali.</p>
           </div>
           
           <Swiper modules={[Autoplay, Pagination, EffectFade]} effect="fade" fadeEffect={{ crossFade: true }} spaceBetween={30} autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -304,7 +383,12 @@ const Home = () => {
               <SwiperSlide key={t.id}>
                 <div className="p-10 md:p-16 relative text-center">
                   <span className="text-[180px] font-playfair text-maroon/5 absolute top-0 left-10 leading-none select-none">"</span>
-                  <div className="flex justify-center mb-6"><StarRating rating={t.rating} size={24} /></div>
+                  <div className="flex justify-center mb-4"><StarRating rating={t.rating} size={24} /></div>
+                  {t.language && (
+                     <div className="mb-4">
+                       <span className="inline-block bg-maroon/10 text-maroon font-semibold font-poppins text-xs px-3 py-1 rounded-full">{t.language}</span>
+                     </div>
+                  )}
                   <p className="text-text-dark font-playfair italic text-xl md:text-3xl mb-10 relative z-10 leading-relaxed">"{t.text}"</p>
                   <div className="flex items-center justify-center gap-4">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow to-yellow-dark p-1">
@@ -389,14 +473,15 @@ const Home = () => {
         
         <div className="max-w-3xl relative z-10 mx-auto px-4 text-center">
           <Award size={48} className="text-yellow mx-auto mb-6 opacity-80" />
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">Stay Connected to Cosmic Wisdom</h2>
-          <p className="text-white/80 font-poppins text-lg mb-10 leading-relaxed">Join our community and receive weekly actionable Vastu tips, special offers, and holistic living guides straight to your inbox.</p>
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">Stay Connected to (MASUM VASTU GURU)</h2>
+          <p className="text-white/80 font-poppins text-lg mb-4 leading-relaxed">Join our community and receive weekly actionable Vastu tips, special offers, and holistic living guides straight to your inbox.</p>
+          <p className="text-yellow font-playfair text-xl italic mb-10">MASUM VASTU GURU (Vastu Kahe Tathastu)</p>
           
           <form onSubmit={handleNewsletter} className="flex flex-col sm:flex-row max-w-lg mx-auto gap-3">
             <input type="email" required value={newsEmail} onChange={e => setNewsEmail(e.target.value)}
-              placeholder="Enter your email address..." className="flex-1 px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow font-poppins shadow-lg" />
-            <button type="submit" className="bg-yellow text-maroon px-8 py-4 rounded-xl font-bold font-poppins hover:bg-yellow-light focus:ring-2 focus:ring-offset-2 focus:ring-maroon-dark transition-all shadow-lg flex items-center justify-center gap-2">
-              Subscribe <Send size={20} />
+              placeholder="Enter your email address..." className="flex-1 px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow font-poppins shadow-lg bg-white/10 text-white placeholder-white/50 border border-white/20" />
+            <button type="submit" className="bg-[#F4BB00] text-white px-8 py-4 rounded-xl font-bold font-poppins hover:bg-yellow-dark focus:ring-2 focus:ring-offset-2 focus:ring-maroon-dark transition-all shadow-lg flex items-center justify-center gap-2 border border-[#F4BB00]/50">
+              Subscribe <Send size={20} className="text-white" />
             </button>
           </form>
           <p className="text-white/50 text-sm mt-6 font-poppins">We respect your privacy. Unsubscribe at any time.</p>

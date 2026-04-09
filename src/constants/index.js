@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+const WHATSAPP_NUMBER = "918989363200";
 
 export const WA = {
   general: () => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I need help with Vastu.")}`,
@@ -8,9 +8,9 @@ export const WA = {
 };
 
 export const SITE = {
-  phone: "+91 XXXXXXXXXX",
+  phone: "+91-89 89 36 3200",
   email: "info@masumvastuguru.com",
-  whatsapp: "+91 XXXXXXXXXX",
+  whatsapp: "+91-89 89 36 3200",
   instagram: "https://instagram.com/masumvastuguru",
   facebook: "https://facebook.com/masumvastuguru",
   youtube: "https://youtube.com/@masumvastuguru",
