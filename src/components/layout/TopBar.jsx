@@ -17,11 +17,10 @@ const TopBar = () => {
       {/* Social & Contact */}
       <div className="flex items-center gap-4 shrink-0 mt-1 md:mt-0 pb-1 md:pb-0">
         <div className="hidden lg:flex items-center gap-4 border-r border-white/20 pr-4 text-gray-300 font-poppins text-xs">
-          <span className="text-gray-400">My photo filtering edit+</span>
           <a href={`tel:${SITE.phone}`} className="hover:text-yellow transition-colors flex items-center gap-1"><Phone size={14} /> +91 - 89 89 36 3200</a>
           <a href={`mailto:${SITE.email}`} className="hover:text-yellow transition-colors flex items-center gap-1"><Mail size={14} /> {SITE.email}</a>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-3">
           <a href={SITE.facebook} className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] transition-all"><Facebook size={12} /></a>
           <a href={SITE.instagram} className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] transition-all"><Instagram size={12} /></a>
           <a href={SITE.youtube} className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#FF0000] transition-all"><Youtube size={12} /></a>

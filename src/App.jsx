@@ -19,6 +19,7 @@ import Dashboard from './pages/Dashboard';
 import ScrollToTop from './components/common/ScrollToTop';
 import BookingModal from './components/modals/BookingModal';
 import useBookingStore from './store/bookingStore';
+import SiteNotice from './components/common/SiteNotice';
 
 
 function AnimatedRoutes() {
@@ -38,6 +39,7 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<Dashboard defaultTab="admin" />} />
       </Routes>
     </AnimatePresence>
   );
@@ -55,6 +57,7 @@ function App() {
         isOpen={useBookingStore(s => s.isOpen)} 
         onClose={useBookingStore(s => s.closeBooking)} 
       />
+      <SiteNotice />
       <Toaster position="top-right" toastOptions={{ style: { fontFamily: 'Poppins', borderRadius: '12px' }, success: { iconTheme: { primary: '#7F0404', secondary: '#fff' } } }} />
 
     </BrowserRouter>

@@ -124,7 +124,7 @@ export const courses = [
     price: 22999, originalPrice: 40000, rating: 4.9, enrollments: 18,
     duration: "90 hours", instructor: "Masum Vastu Expert", certified: true,
     description: "Master the sacred art of temple and religious structure design using ancient Vastu and Agama Shastra principles.",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=600",
+    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=600",
     curriculum: [
       { module: "Sacred Architecture Principles", lessons: ["Agama Shastra Fundamentals", "Shilpa Shastra Overview", "Sacred Geometry", "Divine Proportions"] },
       { module: "Temple Design Vastu", lessons: ["Garbhagriha Planning", "Mandapa Design", "Gopuram Architecture", "Prakara Layout"] },

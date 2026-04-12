@@ -1,10 +1,26 @@
 import { motion } from 'framer-motion';
-import { CheckCircle, ArrowRight, MapPin, Video, Wrench, Lightbulb, Map } from 'lucide-react';
+import { CheckCircle, ArrowRight, MapPin, Video, Wrench, Lightbulb, Map, ShoppingCart } from 'lucide-react';
+import useCartStore from '../../store/cartStore';
+import toast from 'react-hot-toast';
 
 const iconMap = { MapPin, Video, Wrench, Lightbulb, Map };
 
 const ServiceCard = ({ service, index = 0, onBook }) => {
   const Icon = iconMap[service.icon] || MapPin;
+  const addItem = useCartStore(s => s.addItem);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem({
+      id: service.id,
+      name: service.name,
+      price: service.price,
+      images: [service.image || ''],
+      category: 'Services'
+    });
+    toast.success('Service added to cart! 🛒');
+  };
 
   return (
     <motion.div
@@ -34,10 +50,19 @@ const ServiceCard = ({ service, index = 0, onBook }) => {
           <span className="text-2xl font-bold text-maroon font-poppins">{service.priceLabel}</span>
           <span className="text-sm text-text-mid font-poppins">{service.duration}</span>
         </div>
-        <button onClick={() => onBook?.(service.name)}
-          className="btn-secondary w-full flex items-center justify-center gap-2">
-          Book Now <ArrowRight size={16} />
-        </button>
+        
+        <div className="flex flex-col gap-2">
+          {service.canAddToCart && (
+            <button onClick={handleAddToCart}
+              className="bg-maroon text-white w-full py-2.5 rounded-lg text-sm font-semibold font-poppins flex items-center justify-center gap-2 hover:bg-yellow hover:text-maroon transition-all duration-300 border border-maroon">
+              <ShoppingCart size={16} /> Add to Cart
+            </button>
+          )}
+          <button onClick={() => onBook?.(service.name)}
+            className={`w-full flex items-center justify-center gap-2 ${service.canAddToCart ? 'btn-outline border-maroon text-maroon hover:bg-maroon/5' : 'btn-secondary'}`}>
+            Book Now <ArrowRight size={16} />
+          </button>
+        </div>
       </div>
     </motion.div>
   );

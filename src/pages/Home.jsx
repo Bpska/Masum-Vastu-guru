@@ -30,14 +30,7 @@ import useBookingStore from '../store/bookingStore';
 
 
 
-const faqs = [
-  { q: "What is Vastu Shastra and how can it help me?", a: "Vastu Shastra is the ancient Indian science of architecture and spatial arrangement. It helps create harmonious living spaces that promote health, wealth, and happiness by aligning your environment with natural energies and cosmic forces." },
-  { q: "How much does a Vastu consultation cost?", a: "Our consultation packages start from ₹800 for simple remedies and go up to ₹3,000+ for comprehensive site visits. Online consultations are available from ₹1,200. Contact us for a personalized quote based on your specific needs." },
-  { q: "Can Vastu corrections be done without demolition?", a: "Absolutely! Our signature service specializes in non-destructive Vastu corrections using pyramids, crystals, yantras, and strategic placements. No structural changes are needed in most cases." },
-  { q: "Do you offer online consultations?", a: "Yes, we provide comprehensive online consultations via video call. Share your floor plans and photos, and receive a detailed digital report with remedies. This service is available worldwide." },
-  { q: "How long does it take to see results after Vastu corrections?", a: "Many clients report positive changes within 2-4 weeks of implementing Vastu corrections. However, the timeline can vary depending on the severity of doshas and the remedies applied." },
-  { q: "Are your courses certified?", a: "Yes, all our courses come with professional certification upon completion. Our certificates are recognized in the Vastu consultancy industry and help establish your credibility as a practitioner." },
-];
+
 
 // Animation variants
 const fadeInUp = {
@@ -59,7 +52,7 @@ const Home = () => {
   const openBooking = useBookingStore(s => s.openBooking);
   const [openFaq, setOpenFaq] = useState(null);
 
-  const [newsEmail, setNewsEmail] = useState('');
+  const [communityEmail, setCommunityEmail] = useState('');
   
   const { ref: statsRef, inView: statsInView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -67,14 +60,14 @@ const Home = () => {
 
   const featuredProducts = products.filter(p => p.isFeatured);
 
-  const handleNewsletter = (e) => {
+  const handleCommunityUpdate = (e) => {
     e.preventDefault();
-    if (!newsEmail.trim()) return;
+    if (!communityEmail.trim()) return;
     const subs = JSON.parse(localStorage.getItem('vastu_subscribers') || '[]');
-    subs.push({ email: newsEmail, date: new Date().toISOString() });
+    subs.push({ email: communityEmail, date: new Date().toISOString() });
     localStorage.setItem('vastu_subscribers', JSON.stringify(subs));
     toast.success('Thank you for subscribing! 🙏');
-    setNewsEmail('');
+    setCommunityEmail('');
   };
 
   return (
@@ -219,34 +212,7 @@ const Home = () => {
             ))}
           </div>
 
-          {/* Pricing Table Section */}
-          <div className="mt-20 overflow-x-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <h3 className="text-3xl font-playfair font-bold text-center text-maroon mb-8">Service Pricing Table</h3>
-            <table className="w-full min-w-[600px] text-left border-collapse">
-              <thead>
-                <tr className="border-b-2 border-maroon">
-                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Region</th>
-                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Site Visit Consultancy</th>
-                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Online Consultancy</th>
-                  <th className="py-4 px-6 text-text-dark font-playfair font-bold text-lg">Vastu Connect</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-semibold font-poppins text-maroon">Local</td>
-                  <td className="py-4 px-6 font-poppins text-text-mid">₹3000/- <span className="text-green-500 font-bold ml-1">✓</span></td>
-                  <td className="py-4 px-6 font-poppins text-text-mid">₹1200/- <span className="text-green-500 font-bold ml-1">✓</span></td>
-                  <td className="py-4 px-6 font-poppins text-text-mid">₹3000/- <span className="text-green-500 font-bold ml-1">✓</span></td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-semibold font-poppins text-maroon">Odisha</td>
-                  <td className="py-4 px-6 font-poppins text-text-mid">₹30,000/- <span className="text-green-500 font-bold ml-1">✓ (visit)</span></td>
-                  <td className="py-4 px-6 font-poppins text-text-mid">-</td>
-                  <td className="py-4 px-6 font-poppins text-text-mid">-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
 
           <div className="text-center mt-12">
             <Link to="/services" className="btn-primary inline-flex items-center gap-2 group">
@@ -372,9 +338,9 @@ const Home = () => {
         <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-maroon/5 rounded-full blur-3xl" />
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h4 className="text-maroon font-bold tracking-widest uppercase mb-2">Moments of Harmony ?</h4>
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-text-dark">Stories of Transformation (Feedbacks)</h2>
-            <p className="text-text-mid text-lg mt-4">Read our success stories in English, Odia, and Bengali.</p>
+            <h4 className="text-maroon font-bold tracking-widest uppercase mb-2">Moments of Harmony 🌟</h4>
+            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-text-dark">Original Google Reviews</h2>
+            <p className="text-text-mid text-lg mt-4">Read authentic success stories from our happy clients.</p>
           </div>
           
           <Swiper modules={[Autoplay, Pagination, EffectFade]} effect="fade" fadeEffect={{ crossFade: true }} spaceBetween={30} autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -433,60 +399,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 md:py-28 bg-bg-light">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-text-dark mb-4">Frequently Asked Questions</h2>
-            <p className="text-text-mid text-lg">Clear your doubts about our practices and methodology.</p>
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 ${openFaq === i ? 'ring-2 ring-yellow shadow-md' : 'hover:border-yellow/50'}`}>
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left">
-                  <span className="font-poppins font-semibold text-text-dark text-lg pr-4">{faq.q}</span>
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaq === i ? 'bg-yellow text-maroon' : 'bg-gray-50 text-gray-500'}`}>
-                    {openFaq === i ? <Minus size={20} /> : <Plus size={20} />}
-                  </div>
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }} className="overflow-hidden">
-                      <div className="px-6 pb-6 border-t border-gray-50 pt-4">
-                        <p className="text-text-mid font-poppins text-md leading-relaxed">{faq.a}</p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* NEWSLETTER */}
-      <section className="py-24 relative overflow-hidden bg-maroon-dark">
-        <div className="absolute inset-0 bg-gradient-to-br from-maroon to-maroon-dark" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
-        
-        <div className="max-w-3xl relative z-10 mx-auto px-4 text-center">
-          <Award size={48} className="text-yellow mx-auto mb-6 opacity-80" />
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">Stay Connected to (MASUM VASTU GURU)</h2>
-          <p className="text-white/80 font-poppins text-lg mb-4 leading-relaxed">Join our community and receive weekly actionable Vastu tips, special offers, and holistic living guides straight to your inbox.</p>
-          <p className="text-yellow font-playfair text-xl italic mb-10">MASUM VASTU GURU (Vastu Kahe Tathastu)</p>
-          
-          <form onSubmit={handleNewsletter} className="flex flex-col sm:flex-row max-w-lg mx-auto gap-3">
-            <input type="email" required value={newsEmail} onChange={e => setNewsEmail(e.target.value)}
-              placeholder="Enter your email address..." className="flex-1 px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow font-poppins shadow-lg bg-white/10 text-white placeholder-white/50 border border-white/20" />
-            <button type="submit" className="bg-[#F4BB00] text-white px-8 py-4 rounded-xl font-bold font-poppins hover:bg-yellow-dark focus:ring-2 focus:ring-offset-2 focus:ring-maroon-dark transition-all shadow-lg flex items-center justify-center gap-2 border border-[#F4BB00]/50">
-              Subscribe <Send size={20} className="text-white" />
-            </button>
-          </form>
-          <p className="text-white/50 text-sm mt-6 font-poppins">We respect your privacy. Unsubscribe at any time.</p>
-        </div>
-      </section>
+
 
       <LiveOrderNotification />
     </motion.div>

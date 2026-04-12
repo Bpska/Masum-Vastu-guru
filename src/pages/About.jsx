@@ -32,9 +32,23 @@ const About = () => {
             <h2 className="text-3xl font-playfair font-bold text-maroon mb-2">Masum Vastu Guru</h2>
             <p className="text-yellow font-semibold font-poppins mb-4">8+ Years of Expertise (Since 2019)</p>
             <div className="space-y-4 text-text-mid font-poppins leading-relaxed">
-              <p>ମାସୁମ୍ ବାସ୍ତୁ ଗୁରୁ ଦୀର୍ଘ ୮ ବର୍ଷରୁ ଊର୍ଦ୍ଧ୍ୱ ସମୟ ଧରି ବାସ୍ତୁ ଶାସ୍ତ୍ର ଏବଂ ଜ୍ୟୋତିଷ ଶାସ୍ତ୍ର ମାଧ୍ୟମରେ ଅନେକ ଲୋକଙ୍କ ଜୀବନରେ ସକାରାତ୍ମକ ପରିବର୍ତ୍ତନ ଆଣିବାରେ ସଫଳ ହୋଇଛନ୍ତି।</p>
-              <p>ସେ ବିନା କୌଣସି ଭଙ୍ଗାଭଙ୍ଗିରେ (No Demolition) ବାସ୍ତୁ ଦୋଷ ନିବାରଣ କରିବାରେ ବିଶେଷଜ୍ଞ। ଆଧୁନିକ ଜୀବନଶୈଳୀ ସହ ପ୍ରାଚୀନ ବାସ୍ତୁ ଜ୍ଞାନର ସମନ୍ୱୟ ରକ୍ଷା କରି, ସେ ଉଲ୍ଲେଖନୀୟ ପରାମର୍ଶ ପ୍ରଦାନ କରନ୍ତି।</p>
-              <p>With over 8 years of dedicated practice in Vastu Shastra since 2019, Masum Vastu Guru has transformed hundreds of homes and businesses. His unique approach ensures that clients can benefit from Vastu corrections without any structural demolition.</p>
+              <p>MASUM VASTU GURU Vastu Consultants are professionally qualified and highly talented Vastu experts and researchers in construction and interior designing. We are specialized Vastu experts in India for vastu for Homes, Business Offices, Factories, Residential Lands, Industrial Analysis & Guidance, and Cater various stages of services in this field.</p>
+              <p>We also help to sort out specific problems in households, offices, and factories by suggesting reliable solutions. Our Vastu Services will help you to improve efficiency, enhance productivity, and minimize downtime.</p>
+              <p>Vastu Services MVG provides professional guidance and Vastu services in BHUBANESWAR, Odisha, on the ancient & scientific knowledge of Indian Vastu Shastra. We assist and help you to reform your surroundings.</p>
+              <div className="bg-yellow/10 p-4 rounded-xl mt-4">
+                <h4 className="font-bold text-maroon mb-2">Our Services:</h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm">
+                  <li>Construction plan, factory, commercial building</li>
+                  <li>All types of Mukhi land, corporate office</li>
+                  <li>Shree hanuman ji katha</li>
+                  <li>Shree ram ji katha</li>
+                </ul>
+              </div>
+              <div className="mt-6 pt-4 border-t border-gray-100">
+                <p className="font-playfair font-bold text-lg text-maroon">MASUM VASTU GURU</p>
+                <p className="text-sm">(Mrs. Masum Mohapatra)</p>
+                <p className="text-sm mt-2">Email: <a href="mailto:masumvastuguru@gmail.com" className="text-maroon hover:underline">masumvastuguru@gmail.com</a></p>
+              </div>
             </div>
           </motion.div>
         </div>
