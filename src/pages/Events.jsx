@@ -73,7 +73,7 @@ const Events = () => {
                   <span className="text-xs text-text-mid font-poppins">{article.date}</span>
                   <h3 className="font-playfair font-bold text-maroon text-lg mt-2 mb-1">{article.title}</h3>
                   <p className="text-text-mid text-sm font-poppins mb-3">— {article.source}</p>
-                  <a href="#" className="text-maroon font-semibold text-sm font-poppins hover:text-yellow inline-flex items-center gap-1">
+                  <a href="javascript:void(0)" className="text-maroon font-semibold text-sm font-poppins hover:text-yellow inline-flex items-center gap-1">
                     Read Article <ExternalLink size={14} />
                   </a>
                 </motion.div>

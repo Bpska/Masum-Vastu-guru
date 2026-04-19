@@ -15,7 +15,7 @@ const Services = () => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
       {/* Hero */}
-      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-24 pb-16">
+      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-36 md:pt-40 lg:pt-44 pb-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-playfair font-bold text-white mb-4">Professional Vastu Consultation Services</h1>
           <p className="text-white/70 font-poppins max-w-2xl mx-auto">Expert Vastu guidance to harmonize your living and working spaces with time-tested principles.</p>
@@ -35,7 +35,7 @@ const Services = () => {
           <h2 className="section-title">Why Choose Our Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Clock, title: '15+ Years Experience', desc: 'Decades of expertise in Vastu consultancy' },
+              { icon: Clock, title: '8+ Years Experience', desc: 'Decades of expertise in Vastu consultancy' },
               { icon: Users, title: '250+ Happy Clients', desc: 'Trusted by hundreds of satisfied customers' },
               { icon: Award, title: 'Certified Consultants', desc: 'Professionally trained and certified experts' },
               { icon: Shield, title: 'Money-Back Guarantee', desc: 'Full satisfaction or your money back' },

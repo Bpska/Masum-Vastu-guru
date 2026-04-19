@@ -33,8 +33,7 @@ function newOrder() {
 }
 
 /* ─── Config ─── */
-const SHOW_AFTER_MS   = 10_000; // show first toast after 10 seconds
-const CYCLE_MS        = 6_000;  // rotate to a new order every 6 seconds
+const SHOW_AFTER_MS   = 45_000; // show first toast after 45 seconds
 
 export default function LiveOrderNotification() {
   const [visible,      setVisible]      = useState(false);
@@ -57,16 +56,22 @@ export default function LiveOrderNotification() {
     return () => clearTimeout(t);
   }, [dismissed]);
 
-  /* cycle orders every CYCLE_MS once visible */
+  /* cycle orders every 45-60 sec once visible */
   useEffect(() => {
     if (!visible || dismissed) return;
-    const iv = setInterval(() => {
-      const o = newOrder();
-      setCurrent(o);
-      setOrderCount(c => c + 1);
-      setRecentOrders(prev => [o, ...prev].slice(0, 8));
-    }, CYCLE_MS);
-    return () => clearInterval(iv);
+    let t;
+    const nextOrder = () => {
+      const delay = Math.floor(Math.random() * (60000 - 45000 + 1)) + 45000;
+      t = setTimeout(() => {
+        const o = newOrder();
+        setCurrent(o);
+        setOrderCount(c => c + 1);
+        setRecentOrders(prev => [o, ...prev].slice(0, 8));
+        nextOrder();
+      }, delay);
+    };
+    nextOrder();
+    return () => clearTimeout(t);
   }, [visible, dismissed]);
 
   const dismiss = useCallback(() => {

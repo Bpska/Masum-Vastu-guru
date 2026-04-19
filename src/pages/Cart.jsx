@@ -15,7 +15,7 @@ const Cart = () => {
 
   if (items.length === 0) return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="pt-24 min-h-screen flex items-center justify-center">
+      className="pt-36 md:pt-40 lg:pt-44 min-h-screen flex items-center justify-center">
       <div className="text-center">
         <ShoppingCart size={80} className="text-maroon/30 mx-auto mb-4" />
         <h2 className="text-2xl font-playfair font-bold text-maroon mb-2">Your cart is empty</h2>
@@ -27,7 +27,7 @@ const Cart = () => {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
-      <div className="pt-24 max-w-7xl mx-auto px-4 py-8">
+      <div className="pt-36 md:pt-40 lg:pt-44 max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-playfair font-bold text-maroon mb-8">Shopping Cart ({items.length})</h1>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8">
           {/* Cart Items */}

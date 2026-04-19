@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -64,7 +65,7 @@ const Dashboard = ({ defaultTab = 'profile' }) => {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
-      <div className="pt-24 min-h-screen bg-bg-light">
+      <div className="pt-36 md:pt-40 lg:pt-44 min-h-screen bg-bg-light">
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6">
             {/* Sidebar */}

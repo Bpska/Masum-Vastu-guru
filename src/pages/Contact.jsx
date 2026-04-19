@@ -98,12 +98,19 @@ const Contact = () => {
         </form>
       </section>
 
-      {/* Map Placeholder */}
+      {/* Map Section */}
       <section className="max-w-5xl mx-auto px-4 mb-12">
-        <div className="bg-bg-light rounded-2xl p-12 text-center">
-          <MapPin size={48} className="text-maroon mx-auto mb-4" />
-          <h3 className="font-playfair font-bold text-maroon text-xl mb-2">Our Location</h3>
-          <p className="text-text-mid font-poppins">India • Available for consultations worldwide</p>
+        <h2 className="section-title">Our Location</h2>
+        <div className="bg-white p-4 rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.102423670754!2d85.80135179999999!3d20.337387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909747d3f696f%3A0xd673917e202939d3!2sMASUM%20VASTU%20GURU!5e0!3m2!1sen!2sin!4v1776581283546!5m2!1sen!2sin" 
+            width="100%" 
+            height="450" 
+            style={{ border: 0, borderRadius: '12px' }} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </section>
 

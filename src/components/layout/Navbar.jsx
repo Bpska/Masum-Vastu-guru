@@ -58,7 +58,6 @@ const Navbar = () => {
     { name: 'Services', path: '/services', dropdown: true, type: 'services', icon: Wrench },
     { name: 'Courses', path: '/courses', icon: GraduationCap },
     { name: 'Events', path: '/events', icon: Calendar },
-    { name: 'Testimonials', path: '/testimonials', icon: Star },
     { name: 'Contact', path: '/contact', icon: MessageSquare },
   ];
 

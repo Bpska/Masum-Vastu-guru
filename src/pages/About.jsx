@@ -2,6 +2,16 @@ import { motion } from 'framer-motion';
 import { Award, Heart, Shield, Users, Target, Eye } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import wonImage from '../assets/won.jpeg';
+import ach1 from '../assets/WhatsApp Image 2026-04-19 at 12.05.41 PM.jpeg';
+import ach2 from '../assets/WhatsApp Image 2026-04-19 at 12.05.41 PM (2).jpeg';
+import ach3 from '../assets/WhatsApp Image 2026-04-19 at 12.05.41 PM (1).jpeg';
+import ach4 from '../assets/WhatsApp Image 2026-04-19 at 12.05.40 PM.jpeg';
+import ach5 from '../assets/WhatsApp Image 2026-04-19 at 12.21.50 PM (1).jpeg';
+import ach6 from '../assets/WhatsApp Image 2026-04-19 at 12.21.50 PM (2).jpeg';
+import ach7 from '../assets/WhatsApp Image 2026-04-19 at 12.21.51 PM.jpeg';
+
+
 
 const About = () => {
   const { ref: statsRef, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
@@ -9,10 +19,10 @@ const About = () => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
       {/* Hero */}
-      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-24 pb-16">
+      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-36 md:pt-40 lg:pt-44 pb-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-playfair font-bold text-white mb-4">About Masum Vastu Guru</h1>
-          <p className="text-white/70 font-poppins max-w-xl mx-auto">Transforming lives through the ancient science of Vastu Shastra for over 15 years.</p>
+          <p className="text-white/70 font-poppins max-w-xl mx-auto">Transforming lives through the ancient science of Vastu Shastra with 8 years of experience.</p>
         </div>
       </div>
 
@@ -20,8 +30,8 @@ const About = () => {
       <section className="py-16 max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-maroon/10 to-yellow/10 flex items-center justify-center relative overflow-hidden shadow-lg">
-              <img src="/founder.jpg" alt="Masum Vastu Guru" className="w-full h-full object-cover object-top" />
+            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-maroon/10 to-yellow/10 flex items-center justify-center relative overflow-hidden shadow-2xl border-4 border-white">
+              <img src={wonImage} alt="Masum Vastu Guru" className="w-full h-full object-cover" />
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center z-10 shadow-md">
                 <p className="font-playfair font-bold text-maroon text-lg">Masum Vastu Guru</p>
                 <p className="text-sm text-text-mid font-poppins">Vastu Consultant & Astrologer</p>
@@ -125,23 +135,15 @@ const About = () => {
         </div>
       </section>
 
-      {/* Awards */}
+      {/* Awards Showcase */}
       <section className="py-16 max-w-7xl mx-auto px-4">
         <h2 className="section-title">Achievements &amp; Recognitions</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {[
-            'Certified Vastu Master',
-            'Best Consultant Award',
-            'Excellence in Education',
-            'Community Service Award',
-            'Top Rated Professional',
-            'Industry Pioneer Award',
-          ].map((award, i) => (
-            <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }} viewport={{ once: true }}
-              className="bg-white rounded-xl border-2 border-maroon/10 p-4 text-center card-hover">
-              <Award size={32} className="text-yellow mx-auto mb-2" />
-              <p className="text-xs font-poppins font-semibold text-maroon">{award}</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {[ach1, ach2, ach3, ach4, ach5, ach6, ach7].map((imgSrc, i) => (
+            <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }} viewport={{ once: true }}
+              className="bg-white rounded-2xl overflow-hidden shadow-md card-hover border-4 border-white aspect-[4/3]">
+              <img src={imgSrc} alt={`Achievement ${i+1}`} className="w-full h-full object-cover" />
             </motion.div>
           ))}
         </div>

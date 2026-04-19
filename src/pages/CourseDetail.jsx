@@ -124,8 +124,8 @@ const CourseDetail = () => {
                 <div className="w-24 h-24 rounded-full bg-maroon/10 flex items-center justify-center text-3xl font-playfair text-maroon font-bold flex-shrink-0">MV</div>
                 <div>
                   <h3 className="text-xl font-playfair font-bold text-maroon mb-1">{course.instructor}</h3>
-                  <p className="text-text-mid text-sm font-poppins mb-3">Certified Vastu Consultant • 15+ Years Experience</p>
-                  <p className="text-text-mid font-poppins leading-relaxed">With over 15 years of experience in Vastu Shastra, our expert has helped hundreds of clients transform their living and working spaces. A certified master consultant with deep knowledge of both traditional and modern Vastu applications.</p>
+                  <p className="text-text-mid text-sm font-poppins mb-3">Certified Vastu Consultant • 8+ Years Experience</p>
+                  <p className="text-text-mid font-poppins leading-relaxed">With over 8 years of experience in Vastu Shastra, our expert has helped hundreds of clients transform their living and working spaces. A certified master consultant with deep knowledge of both traditional and modern Vastu applications.</p>
                 </div>
               </div>
             )}

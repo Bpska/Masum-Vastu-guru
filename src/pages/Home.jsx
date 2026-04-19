@@ -17,7 +17,6 @@ const CountUp = (CountUpImport && CountUpImport.default && typeof CountUpImport.
 import { ChevronDown, Plus, Minus, Award, Shield, Heart, Users, ArrowRight, Send, Star, CheckCircle, Phone, ShieldAlert } from 'lucide-react';
 import { products } from '../data/products';
 import { services } from '../data/services';
-import { testimonials } from '../data/testimonials';
 import ProductCard from '../components/cards/ProductCard';
 import ServiceCard from '../components/cards/ServiceCard';
 import StarRating from '../components/common/StarRating';
@@ -26,6 +25,7 @@ import LiveOrderNotification from '../components/common/LiveOrderNotification';
 import toast from 'react-hot-toast';
 import heroImage from '../assets/image.png';
 import heroImageCopy from '../assets/image copy.png';
+import wonImage from '../assets/won.jpeg';
 import useBookingStore from '../store/bookingStore';
 
 
@@ -73,7 +73,7 @@ const Home = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
       {/* HERO SECTION - Premium Sliding Banner */}
-      <section className="relative mt-24 md:mt-28 lg:mt-32 bg-white overflow-hidden shadow-sm">
+      <section className="relative mt-32 md:mt-36 lg:mt-40 bg-white overflow-hidden shadow-sm">
         <div className="max-w-[1920px] mx-auto">
           <Swiper
             modules={[Autoplay, Pagination, EffectFade]}
@@ -129,8 +129,8 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="order-2 md:order-1 relative"
           >
-            <img src="/founder.jpg" alt="Founder Masum Vastu Expert" className="rounded-2xl shadow-lg w-full h-[500px] object-cover object-top" />
-            <div className="absolute inset-0 border-2 border-maroon rounded-2xl translate-x-4 translate-y-4 -z-10" />
+            <img src={wonImage} alt="Founder Masum Vastu Expert" className="rounded-3xl shadow-2xl w-full h-[550px] object-cover border-4 border-white" />
+            <div className="absolute inset-0 border-2 border-maroon rounded-3xl translate-x-4 translate-y-4 -z-10" />
           </motion.div>
           
           <motion.div 
@@ -147,7 +147,7 @@ const Home = () => {
               At Masum Vastu Guru, we bridge the gap between ancient architectural science and modern living. Our goal is to transform your home or workspace into a magnet for positivity and success.
             </motion.p>
             <motion.ul variants={fadeInUp} className="space-y-4 mb-8">
-              {['Non-destructive Vastu Corrections', 'Personalized Energy Mapping', 'Premium Energized Remedies'].map((item, i) => (
+              {['Non-destructive Vastu Corrections', 'Industrial & Factory Expert', 'Professional Construction Plans', 'Shree Hanuman & Ram Ji Katha'].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-text-dark font-medium font-poppins"><CheckCircle className="text-yellow" size={20} /> {item}</li>
               ))}
             </motion.ul>
@@ -333,44 +333,98 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20 md:py-28 bg-bg-light relative overflow-hidden">
-        <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-maroon/5 rounded-full blur-3xl" />
-        <div className="max-w-5xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <h4 className="text-maroon font-bold tracking-widest uppercase mb-2">Moments of Harmony 🌟</h4>
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-text-dark">Original Google Reviews</h2>
-            <p className="text-text-mid text-lg mt-4">Read authentic success stories from our happy clients.</p>
+      {/* GOOGLE REVIEWS SECTION */}
+      <section className="py-20 md:py-28 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-text-dark mb-4">Google review summary</h2>
           </div>
           
-          <Swiper modules={[Autoplay, Pagination, EffectFade]} effect="fade" fadeEffect={{ crossFade: true }} spaceBetween={30} autoplay={{ delay: 5000, disableOnInteraction: false }}
-            pagination={{ clickable: true }} slidesPerView={1} className="pb-14 shadow-2xl rounded-3xl overflow-hidden bg-white">
-            {testimonials.slice(0, 5).map(t => (
-              <SwiperSlide key={t.id}>
-                <div className="p-10 md:p-16 relative text-center">
-                  <span className="text-[180px] font-playfair text-maroon/5 absolute top-0 left-10 leading-none select-none">"</span>
-                  <div className="flex justify-center mb-4"><StarRating rating={t.rating} size={24} /></div>
-                  {t.language && (
-                     <div className="mb-4">
-                       <span className="inline-block bg-maroon/10 text-maroon font-semibold font-poppins text-xs px-3 py-1 rounded-full">{t.language}</span>
-                     </div>
-                  )}
-                  <p className="text-text-dark font-playfair italic text-xl md:text-3xl mb-10 relative z-10 leading-relaxed">"{t.text}"</p>
-                  <div className="flex items-center justify-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow to-yellow-dark p-1">
-                      <div className="w-full h-full bg-white rounded-full flex items-center justify-center text-maroon font-bold font-poppins text-xl">
-                        {t.avatar}
-                      </div>
-                    </div>
-                    <div className="text-left">
-                      <p className="font-bold text-maroon text-lg font-poppins">{t.name}</p>
-                      <p className="text-text-mid font-poppins">{t.city}</p>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">Q</div>
+                <div>
+                  <h4 className="font-poppins font-bold text-text-dark">Qudosi Sives</h4>
+                  <p className="text-xs text-text-mid">2 reviews · 1 photo</p>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex text-[#F4BB00]"><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /></div>
+                <span className="text-xs text-text-mid">6 days ago</span>
+                <span className="text-xs bg-gray-100 px-2 rounded-full">New</span>
+              </div>
+              <p className="text-text-dark font-poppins text-sm">It's an awesome place, 😃</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl">M</div>
+                <div>
+                  <h4 className="font-poppins font-bold text-text-dark">MID and construction</h4>
+                  <p className="text-xs text-text-mid">1 review</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex text-[#F4BB00]"><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /></div>
+                <span className="text-xs text-text-mid">5 months ago</span>
+              </div>
+              <p className="text-text-dark font-poppins text-sm mb-2">vastu shastra best</p>
+              <p className="text-xs text-text-mid italic">Translated by Google · See original (Hindi)</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">N</div>
+                <div>
+                  <h4 className="font-poppins font-bold text-text-dark">Nyayabanta Behera</h4>
+                  <p className="text-xs text-text-mid">3 reviews · 1 photo</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex text-[#F4BB00]"><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /></div>
+                <span className="text-xs text-text-mid">6 days ago</span>
+                <span className="text-xs bg-gray-100 px-2 rounded-full">New</span>
+              </div>
+              <p className="text-text-dark font-poppins text-sm mb-2">Masum Vastu Guru is the best for Home Vastu, Office Vastu and Business Vastu Solution. Thank you for the professional service and accurate guidance 🙏</p>
+              <p className="text-xs text-text-mid italic">Translated by Google · See original (Odia)</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">L</div>
+                <div>
+                  <h4 className="font-poppins font-bold text-text-dark">Lopa mudra Das</h4>
+                  <p className="text-xs text-text-mid">2 reviews</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex text-[#F4BB00]"><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /></div>
+                <span className="text-xs text-text-mid">6 days ago</span>
+                <span className="text-xs bg-gray-100 px-2 rounded-full">New</span>
+              </div>
+              <p className="text-text-dark font-poppins text-sm mb-2">Masum Vastu Guru is the Best Vastu Expert in Bhubaneswar, Odisha. He gives very accurate and effective advice for Home Vastu, Shop Vastu, Office Vastu and Vastu Dosh Nivaran in Odisha.</p>
+              <p className="text-xs text-text-mid italic">Translated by Google · See original (Odia)</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl">B</div>
+                <div>
+                  <h4 className="font-poppins font-bold text-text-dark">Babul Barik</h4>
+                  <p className="text-xs text-text-mid">2 reviews</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex text-[#F4BB00]"><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /><Star size={14} fill="#F4BB00" /></div>
+                <span className="text-xs text-text-mid">6 days ago</span>
+                <span className="text-xs bg-gray-100 px-2 rounded-full">New</span>
+              </div>
+              <p className="text-text-dark font-poppins text-sm mb-2">Masum Vastu Guru is a famous Vastu Shastra Expert in Odisha. He gives very good advice for correct Vastu Dosh Nivaran for Home Vastu, Shop Vastu and Office Vastu problems.</p>
+              <p className="text-xs text-text-mid italic">Translated by Google · See original (Odia)</p>
+            </div>
+            
+          </div>
         </div>
       </section>
 

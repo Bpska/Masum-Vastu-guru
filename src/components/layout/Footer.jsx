@@ -75,20 +75,24 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3 */}
-          <div>
-            <h4 className="font-playfair font-bold text-maroon text-lg mb-4">Categories</h4>
-            <ul className="space-y-2 font-poppins text-sm">
-              {categories.map(cat => (
-                <li key={cat}>
-                  <Link to={`/products?category=${encodeURIComponent(cat)}`} className="text-text-mid hover:text-maroon transition-colors">{cat}</Link>
-                </li>
-              ))}
-            </ul>
+          {/* Column 3 - Map */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+            <h4 className="font-playfair font-bold text-maroon text-lg mb-4">Find Us</h4>
+            <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.102423670754!2d85.80135179999999!3d20.337387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909747d3f696f%3A0xd673917e202939d3!2sMASUM%20VASTU%20GURU!5e0!3m2!1sen!2sin!4v1776581283546!5m2!1sen!2sin" 
+                width="100%" 
+                height="180" 
+                style={{ border: 0 }} 
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
 
           <div className="flex flex-col gap-4">
-            <h4 className="font-playfair font-bold text-maroon text-lg mb-1">Masum Vastu Guru</h4>
+            <h4 className="font-playfair font-bold text-maroon text-lg mb-1">Stay Connected</h4>
             <div className="flex items-center gap-3">
               <a href={SITE.facebook} className="w-8 h-8 rounded-full bg-maroon/5 flex items-center justify-center text-maroon hover:bg-maroon hover:text-white transition-all"><Facebook size={16} /></a>
               <a href={SITE.instagram} className="w-8 h-8 rounded-full bg-maroon/5 flex items-center justify-center text-maroon hover:bg-maroon hover:text-white transition-all"><Instagram size={16} /></a>

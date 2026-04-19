@@ -11,7 +11,6 @@ import Services from './pages/Services';
 import Courses from './pages/Courses';
 import CourseDetail from './pages/CourseDetail';
 import About from './pages/About';
-import Testimonials from './pages/Testimonials';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
@@ -21,6 +20,11 @@ import BookingModal from './components/modals/BookingModal';
 import useBookingStore from './store/bookingStore';
 import SiteNotice from './components/common/SiteNotice';
 
+
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import ScrollToTopButton from './components/common/ScrollToTopButton';
+import BackgroundAudio from './components/common/BackgroundAudio';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -34,12 +38,13 @@ function AnimatedRoutes() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
         <Route path="/about" element={<About />} />
-        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin" element={<Dashboard defaultTab="admin" />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
     </AnimatePresence>
   );
@@ -53,6 +58,8 @@ function App() {
       <AnimatedRoutes />
       <Footer />
       <FloatingWhatsApp />
+      <ScrollToTopButton />
+      <BackgroundAudio />
       <BookingModal 
         isOpen={useBookingStore(s => s.isOpen)} 
         onClose={useBookingStore(s => s.closeBooking)} 

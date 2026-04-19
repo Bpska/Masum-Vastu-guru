@@ -98,7 +98,7 @@ const Products = () => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
       {/* Header */}
-      <div className="bg-maroon pt-24 pb-8">
+      <div className="bg-maroon pt-36 md:pt-40 lg:pt-44 pb-8">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-playfair font-bold text-white">All Products</h1>
           <div className="flex items-center gap-2 text-white/70 text-sm font-poppins mt-2">

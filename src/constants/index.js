@@ -9,7 +9,7 @@ export const WA = {
 
 export const SITE = {
   phone: "+91-89 89 36 3200",
-  email: "info@masumvastuguru.com",
+  email: "masumvastuguru@gmail.com",
   whatsapp: "+91-89 89 36 3200",
   instagram: "https://instagram.com/masumvastuguru",
   facebook: "https://facebook.com/masumvastuguru",
