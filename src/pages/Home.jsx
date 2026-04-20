@@ -22,10 +22,12 @@ import ServiceCard from '../components/cards/ServiceCard';
 import StarRating from '../components/common/StarRating';
 import BookingModal from '../components/modals/BookingModal';
 import LiveOrderNotification from '../components/common/LiveOrderNotification';
+import ImageLightbox from '../components/modals/ImageLightbox';
 import toast from 'react-hot-toast';
-import heroImage from '../assets/image.png';
-import heroImageCopy from '../assets/image copy.png';
-import wonImage from '../assets/won.jpeg';
+import heroImage from '../assets/hero1.jpeg';
+import heroImageCopy from '../assets/hero-2.jpeg';
+import wonImage from '../assets/won-pxbee-minitools-enhance-202604208720-pxbee-bg-remover-2026042081254.png';
+import goldMedal from '../assets/WhatsApp Image 2026-04-19 at 12.05.40 PM.jpeg';
 import useBookingStore from '../store/bookingStore';
 
 
@@ -51,6 +53,9 @@ const staggerContainer = {
 const Home = () => {
   const openBooking = useBookingStore(s => s.openBooking);
   const [openFaq, setOpenFaq] = useState(null);
+  const [lightbox, setLightbox] = useState({ isOpen: false, src: '', alt: '' });
+
+  const openLightbox = (src, alt) => setLightbox({ isOpen: true, src, alt });
 
   const [communityEmail, setCommunityEmail] = useState('');
   
@@ -129,7 +134,22 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="order-2 md:order-1 relative"
           >
-            <img src={wonImage} alt="Founder Masum Vastu Expert" className="rounded-3xl shadow-2xl w-full h-[550px] object-cover border-4 border-white" />
+            <div className="relative group">
+              <img src={wonImage} alt="Founder Masum Vastu Expert" className="rounded-3xl shadow-2xl w-full h-[550px] object-cover border-4 border-white cursor-pointer hover:scale-[1.01] transition-transform duration-500" 
+                   onClick={() => openLightbox(wonImage, "Founder Masum Vastu Expert")} />
+              <motion.div 
+                initial={{ scale: 0, rotate: -20 }}
+                animate={aboutInView ? { scale: 1, rotate: 0 } : {}}
+                transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 }}
+                className="absolute -bottom-6 -right-6 md:-right-10 w-32 h-32 md:w-40 md:h-40 bg-white rounded-full p-2 shadow-2xl border-4 border-yellow z-20 overflow-hidden group-hover:scale-110 transition-transform duration-300 cursor-pointer"
+                onClick={() => openLightbox(goldMedal, "Gold Medal for Vastu Experts")}
+              >
+                <img src={goldMedal} alt="Gold Medal for Vastu Experts" className="w-full h-full object-cover rounded-full" />
+                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <p className="text-[8px] md:text-[10px] text-white font-bold uppercase text-center leading-tight drop-shadow-lg">Gold Medalist<br/>Vastu Expert</p>
+                </div>
+              </motion.div>
+            </div>
             <div className="absolute inset-0 border-2 border-maroon rounded-3xl translate-x-4 translate-y-4 -z-10" />
           </motion.div>
           
@@ -144,7 +164,7 @@ const Home = () => {
               Mastering the Flow of <span className="text-maroon italic">Cosmic Energy</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-text-mid text-lg mb-6 leading-relaxed">
-              At Masum Vastu Guru, we bridge the gap between ancient architectural science and modern living. Our goal is to transform your home or workspace into a magnet for positivity and success.
+              At <strong className="font-bold text-maroon">MASUM VASTU GURU</strong>, we bridge the gap between ancient architectural science and modern living. Our goal is to transform your home or workspace into a magnet for positivity and success.
             </motion.p>
             <motion.ul variants={fadeInUp} className="space-y-4 mb-8">
               {['Non-destructive Vastu Corrections', 'Industrial & Factory Expert', 'Professional Construction Plans', 'Shree Hanuman & Ram Ji Katha'].map((item, i) => (
@@ -457,6 +477,12 @@ const Home = () => {
 
 
       <LiveOrderNotification />
+      <ImageLightbox 
+        isOpen={lightbox.isOpen} 
+        onClose={() => setLightbox({ ...lightbox, isOpen: false })} 
+        imageSrc={lightbox.src} 
+        altText={lightbox.alt} 
+      />
     </motion.div>
 
   );

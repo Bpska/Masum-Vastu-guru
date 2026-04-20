@@ -33,12 +33,11 @@ const Services = () => {
       <section className="py-16 bg-bg-light">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="section-title">Why Choose Our Services</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Clock, title: '8+ Years Experience', desc: 'Decades of expertise in Vastu consultancy' },
               { icon: Users, title: '250+ Happy Clients', desc: 'Trusted by hundreds of satisfied customers' },
               { icon: Award, title: 'Certified Consultants', desc: 'Professionally trained and certified experts' },
-              { icon: Shield, title: 'Money-Back Guarantee', desc: 'Full satisfaction or your money back' },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }}

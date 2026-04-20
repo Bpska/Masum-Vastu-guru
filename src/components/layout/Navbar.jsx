@@ -38,9 +38,9 @@ const Navbar = () => {
     setServicesDropdown(false);
   }, [location]);
 
-  const navBg = isHome && !scrolled ? 'bg-transparent' : 'bg-white shadow-md';
-  const textColor = isHome && !scrolled ? 'text-white' : 'text-maroon';
-  const logoColor = isHome && !scrolled ? 'text-white' : 'text-maroon';
+  const navBg = 'bg-white shadow-md';
+  const textColor = 'text-maroon';
+  const logoColor = 'text-maroon';
 
   const handleSearch = (e) => {
     e.preventDefault();

@@ -2,19 +2,28 @@ import { motion } from 'framer-motion';
 import { Award, Heart, Shield, Users, Target, Eye } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
-import wonImage from '../assets/won.jpeg';
-import ach1 from '../assets/WhatsApp Image 2026-04-19 at 12.05.41 PM.jpeg';
+import ImageLightbox from '../components/modals/ImageLightbox';
+import wonImage from '../assets/won-pxbee-minitools-enhance-202604208720-pxbee-bg-remover-2026042081254.png';
 import ach2 from '../assets/WhatsApp Image 2026-04-19 at 12.05.41 PM (2).jpeg';
 import ach3 from '../assets/WhatsApp Image 2026-04-19 at 12.05.41 PM (1).jpeg';
 import ach4 from '../assets/WhatsApp Image 2026-04-19 at 12.05.40 PM.jpeg';
-import ach5 from '../assets/WhatsApp Image 2026-04-19 at 12.21.50 PM (1).jpeg';
-import ach6 from '../assets/WhatsApp Image 2026-04-19 at 12.21.50 PM (2).jpeg';
 import ach7 from '../assets/WhatsApp Image 2026-04-19 at 12.21.51 PM.jpeg';
+import { useState } from 'react';
 
 
 
 const About = () => {
   const { ref: statsRef, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+  const [lightbox, setLightbox] = useState({ isOpen: false, src: '', alt: '' });
+
+  const openLightbox = (src, alt) => setLightbox({ isOpen: true, src, alt });
+
+  const majorAwards = [
+    { src: ach4, title: "Gold Medal for Vastu Experts" },
+    { src: ach3, title: "Bidya Bhusan Award" },
+    { src: ach2, title: "Manya Patra for Vastu Experts" },
+    { src: ach7, title: "Master Vastu Vedic Expert's Award" },
+  ];
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
@@ -30,16 +39,17 @@ const About = () => {
       <section className="py-16 max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-maroon/10 to-yellow/10 flex items-center justify-center relative overflow-hidden shadow-2xl border-4 border-white">
-              <img src={wonImage} alt="Masum Vastu Guru" className="w-full h-full object-cover" />
+            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-maroon/10 to-yellow/10 flex items-center justify-center relative overflow-hidden shadow-2xl border-4 border-white cursor-pointer group"
+                 onClick={() => openLightbox(wonImage, "MASUM VASTU GURU")}>
+              <img src={wonImage} alt="Masum Vastu Guru" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center z-10 shadow-md">
-                <p className="font-playfair font-bold text-maroon text-lg">Masum Vastu Guru</p>
-                <p className="text-sm text-text-mid font-poppins">Vastu Consultant & Astrologer</p>
+                <p className="font-playfair font-bold text-maroon text-lg">MASUM VASTU GURU</p>
+                <p className="text-sm text-text-mid font-poppins">Vastu consultant & Numerology ,Astro vastu</p>
               </div>
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-playfair font-bold text-maroon mb-2">Masum Vastu Guru</h2>
+            <h2 className="text-3xl font-playfair font-bold text-maroon mb-2">MASUM VASTU GURU</h2>
             <p className="text-yellow font-semibold font-poppins mb-4">8+ Years of Expertise (Since 2019)</p>
             <div className="space-y-4 text-text-mid font-poppins leading-relaxed">
               <p>MASUM VASTU GURU Vastu Consultants are professionally qualified and highly talented Vastu experts and researchers in construction and interior designing. We are specialized Vastu experts in India for vastu for Homes, Business Offices, Factories, Residential Lands, Industrial Analysis & Guidance, and Cater various stages of services in this field.</p>
@@ -139,15 +149,26 @@ const About = () => {
       <section className="py-16 max-w-7xl mx-auto px-4">
         <h2 className="section-title">Achievements &amp; Recognitions</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {[ach1, ach2, ach3, ach4, ach5, ach6, ach7].map((imgSrc, i) => (
+          {majorAwards.map((award, i) => (
             <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: i * 0.1 }} viewport={{ once: true }}
-              className="bg-white rounded-2xl overflow-hidden shadow-md card-hover border-4 border-white aspect-[4/3]">
-              <img src={imgSrc} alt={`Achievement ${i+1}`} className="w-full h-full object-cover" />
+              className="bg-white rounded-2xl overflow-hidden shadow-md card-hover border-4 border-white aspect-[4/3] relative group cursor-pointer"
+              onClick={() => openLightbox(award.src, award.title)}>
+              <img src={award.src} alt={award.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-maroon/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white font-playfair font-bold text-center px-4 text-sm md:text-base">{award.title}</p>
+              </div>
             </motion.div>
           ))}
         </div>
       </section>
+
+      <ImageLightbox 
+        isOpen={lightbox.isOpen} 
+        onClose={() => setLightbox({ ...lightbox, isOpen: false })} 
+        imageSrc={lightbox.src} 
+        altText={lightbox.alt} 
+      />
     </motion.div>
   );
 };
