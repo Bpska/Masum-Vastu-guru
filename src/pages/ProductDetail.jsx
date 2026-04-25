@@ -34,7 +34,7 @@ const ProductDetail = () => {
   const wishlistHas = useWishlistStore(s => s.items.includes(Number(id)));
 
   if (!product) return (
-    <div className="pt-24 min-h-screen flex items-center justify-center">
+    <div className="pt-36 md:pt-40 lg:pt-44 min-h-screen flex items-center justify-center">
       <div className="text-center">
         <h2 className="text-2xl font-playfair font-bold text-maroon mb-4">Product Not Found</h2>
         <Link to="/products" className="btn-primary">Browse Products</Link>
@@ -47,7 +47,7 @@ const ProductDetail = () => {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
-      <div className="pt-24 max-w-7xl mx-auto px-4 py-8">
+      <div className="pt-36 md:pt-40 lg:pt-44 max-w-7xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm font-poppins text-text-mid mb-6">
           <Link to="/" className="hover:text-maroon">Home</Link> <span>/</span>

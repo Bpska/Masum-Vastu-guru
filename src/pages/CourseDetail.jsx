@@ -14,7 +14,7 @@ const CourseDetail = () => {
   const [enrollOpen, setEnrollOpen] = useState(false);
 
   if (!course) return (
-    <div className="pt-24 min-h-screen flex items-center justify-center">
+    <div className="pt-36 md:pt-40 lg:pt-44 min-h-screen flex items-center justify-center">
       <div className="text-center">
         <h2 className="text-2xl font-playfair font-bold text-maroon mb-4">Course Not Found</h2>
         <Link to="/courses" className="btn-primary">Browse Courses</Link>
@@ -28,7 +28,7 @@ const CourseDetail = () => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-24 pb-12">
+      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-36 md:pt-40 lg:pt-44 pb-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-2 text-white/60 text-sm font-poppins mb-4">
             <Link to="/" className="hover:text-yellow">Home</Link> / <Link to="/courses" className="hover:text-yellow">Courses</Link> / <span className="text-white">{course.name}</span>

@@ -27,7 +27,7 @@ const Contact = () => {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
-      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-24 pb-16">
+      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-36 md:pt-40 lg:pt-44 pb-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-playfair font-bold text-white mb-4">Get In Touch</h1>
           <p className="text-white/70 font-poppins">We'd love to hear from you. Reach out for consultations, products, or any inquiries.</p>
@@ -119,12 +119,12 @@ const Contact = () => {
         <h2 className="section-title">Follow Us</h2>
         <div className="flex justify-center gap-6">
           {[
-            { icon: Instagram, href: SITE.instagram, label: 'Instagram' },
-            { icon: Facebook, href: SITE.facebook, label: 'Facebook' },
-            { icon: Youtube, href: SITE.youtube, label: 'YouTube' },
+            { icon: Instagram, href: SITE.instagram, label: 'Instagram', bg: 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]' },
+            { icon: Facebook, href: SITE.facebook, label: 'Facebook', bg: 'bg-[#1877F2]' },
+            { icon: Youtube, href: SITE.youtube, label: 'YouTube', bg: 'bg-[#FF0000]' },
           ].map((s, i) => (
             <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
-              className="w-14 h-14 rounded-full border-2 border-maroon flex items-center justify-center text-maroon hover:bg-maroon hover:text-yellow transition-all duration-300">
+              className={`w-14 h-14 rounded-full flex items-center justify-center text-white hover:opacity-80 hover:scale-110 shadow-md transition-all duration-300 ${s.bg}`}>
               <s.icon size={24} />
             </a>
           ))}

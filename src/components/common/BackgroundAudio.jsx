@@ -23,33 +23,7 @@ const BackgroundAudio = () => {
       }
     };
 
-    // We can try to listen for the first user interaction to start playing if autoplay failed
-    const handleFirstInteraction = async () => {
-      try {
-        if (audioRef.current && !isPlaying) {
-          await audioRef.current.play();
-          setIsPlaying(true);
-        }
-        // Remove the listeners once played
-        window.removeEventListener('click', handleFirstInteraction);
-        window.removeEventListener('keydown', handleFirstInteraction);
-        window.removeEventListener('scroll', handleFirstInteraction);
-      } catch (e) {
-        // Ignore
-      }
-    };
-
-    window.addEventListener('click', handleFirstInteraction);
-    window.addEventListener('keydown', handleFirstInteraction);
-    window.addEventListener('scroll', handleFirstInteraction);
-
     playAudio();
-
-    return () => {
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('keydown', handleFirstInteraction);
-      window.removeEventListener('scroll', handleFirstInteraction);
-    };
   }, []);
 
   const togglePlay = () => {

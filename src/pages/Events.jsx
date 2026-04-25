@@ -44,7 +44,7 @@ const Events = () => {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
-      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-24 pb-16">
+      <div className="bg-gradient-to-r from-maroon to-maroon-dark pt-36 md:pt-40 lg:pt-44 pb-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-playfair font-bold text-white mb-4">Events &amp; Media</h1>
           <p className="text-white/70 font-poppins">Stay updated with our workshops, media features, and video content.</p>
