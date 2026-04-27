@@ -68,10 +68,10 @@ const Navbar = () => {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/logo.png" alt="Masum Vastu Guru" className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg border-2 border-yellow/30" />
+              <img src="/logo.png" alt="MASUM VASTU GURU" className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg border-2 border-yellow/30" />
               <div className={`hidden sm:flex flex-col justify-center leading-none ${logoColor}`}>
-                <span className="text-2xl font-playfair font-bold">Masum</span>
-                <span className="text-sm font-poppins font-medium tracking-widest uppercase">Vastu Guru</span>
+                <span className="text-2xl font-playfair font-bold uppercase">MASUM</span>
+                <span className="text-sm font-poppins font-bold tracking-widest uppercase">VASTU GURU</span>
               </div>
             </Link>
 
@@ -183,8 +183,8 @@ const Navbar = () => {
                 <div className="flex items-center gap-3">
                   <img src="/logo.png" alt="logo" className="w-14 h-14 rounded-full object-cover shadow-md" />
                   <div className="flex flex-col justify-center leading-none text-maroon">
-                    <span className="text-xl font-playfair font-bold">Masum</span>
-                    <span className="text-[10px] font-poppins font-medium tracking-widest uppercase">Vastu Guru</span>
+                    <span className="text-xl font-playfair font-bold uppercase">MASUM</span>
+                    <span className="text-[10px] font-poppins font-bold tracking-widest uppercase">VASTU GURU</span>
                   </div>
                 </div>
                 <button onClick={() => setMobileOpen(false)} className="p-2 hover:bg-gray-100 rounded-full">
